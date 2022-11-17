@@ -1,0 +1,117 @@
+* {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    --discord-bg :  hsl(220,calc(1*7.7%),22.9%);
+}
+body {
+    overflow: hidden;!important;
+    animation: backgroundfade 4s;
+    background-color:var(--discord-bg);
+}
+html {
+    overflow: hidden;
+}
+
+
+@keyframes StartAnim {
+
+    0% {opacity: 0;}
+    25% {opacity: 0;}
+    50% {opacity: 0;}
+    75% {opacity: 0.50;}
+    100% {opacity: 100;}
+
+}
+
+@keyframes backgroundfade {
+    from {background-color: black;}
+    to {background-color: var(--discord-bg);}
+}
+
+
+/*BUTTONS*/
+button {
+    font-size: 23px;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    border-style: none;
+    animation: StartAnim 5s;
+}
+
+button:hover {
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+    border-radius: 15px;
+}
+
+
+
+element.style {
+    background-color: black;
+}
+
+
+.label-cooldown {
+    font-size: 23px;
+    color: white;
+    font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+    animation: StartAnim 5s;
+}
+img {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+select {
+    font-size: 23px;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    background: #3e3e3e;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    animation: StartAnim 5s;
+    color: white;
+}
+
+.launch-button{
+    background-color: mediumpurple;
+    border-color: mediumpurple;
+}
+.launch-button:hover{
+    background-color: #2e006c;
+    border-color: #2e006c;
+}
+
+.clean-button{
+    background-color: lime;
+    border-color: lime;
+}
+.clean-button:hover{
+    background-color: green;
+    border-color: green;
+}
+
+textarea {
+    color: white;
+    font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+    width: 80%;
+    height: 30%;
+    background-color: black;
+    resize: none;
+    animation: StartAnim 5s;
+}

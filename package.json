@@ -1,0 +1,49 @@
+{
+  "name": "discord_no_token_grabber",
+  "version": "1.0.0",
+  "description": "You will never been token grabbed ever !",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron app.js",
+    "pack": "electron-packager .",
+    "dist": "electron-builder",
+    "installer:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --icon=images/icon/test.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"test\" && node installers/windows/createinstaller.js"
+  },
+  "nsis": {
+    "deleteAppDataOnUninstall": true,
+    "uninstallDisplayName": "app"
+  },
+  "win": {
+    "target": [
+      "nsis"
+    ],
+    "icon": "./assets/icon.icns"
+  },
+  "build": {
+    "appId": "fr.titouanschotte.app",
+    "mac": {
+      "category": "public.app-category.utilities"
+    }
+  },
+  "devDependencies": {
+    "child_process": "^1.0.2",
+    "electron": "^21.3.0",
+    "electron-packager": "^17.1.1",
+    "electron-store": "^8.1.0",
+    "fs": "^0.0.1-security",
+    "os": "^0.1.2",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
+  },
+  "author": "Titouan-Schotté",
+  "license": "ISC",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "electron-packager": "^17.1.1",
+    "electron-store": "^8.1.0",
+    "fs": "^0.0.1-security",
+    "os": "^0.1.2",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
+  }
+}

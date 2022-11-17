@@ -1,0 +1,100 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Discord No Token Grabber</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylemain.css">
+    <title>Document</title>
+</head>
+<body>
+<center>
+    <br>
+<button onclick="SecureLaunch()" class="launch-button">Secure Launch</button><br><br>
+<button onclick="CleanNow()" class="clean-button">Clear Token</button><br><br>
+<label class="label-cooldown">Cooldown between clears :</label><br><br>
+<select onchange="ChangeTimeout()" id="time-in">
+    <option id="1000" value="1000">1s</option>
+    <option id="5000" value="5000">5s</option>
+    <option id="15000" value="15000">15s</option>
+    <option id="30000" value="30000">30s</option>
+    <option id="60000" value="60000">1min</option>
+    <option id="300000" value="300000">5min</option>
+    <option id="600000" value="600000">10min</option>
+    <option id="900000" value="900000">15min</option>
+    <option id="1800000" value="1800000">30min</option>
+    <option id="3600000" value="3600000">1h</option>
+    <option id="OFF"  value="OFF">OFF</option>
+</select><br><br>
+<textarea id="logger" readonly size></textarea>
+</center>
+</body>
+</html>
+<font color="green"></font>
+<script>
+
+    //NodeJS Code
+
+    const electron = require('electron')
+    Store = require('electron-store'),
+    store = new Store();
+
+    if(store.get("firstTime")==undefined){
+        store.set("firstTime","yes")
+        alert("Before clicking on the button below, be sure to have your discord password in mind as well as your two-factor authentication!\n" +
+            "I am not responsible for forgotten passwords!\n" +
+            "Also, don't hesitate to put discord on your phone to connect faster with the QRCode.")
+    }
+    const doc = id => document.getElementById(id)
+    doc(store.get("timeout")).selected=true;
+    if(store.get("timeout")!="OFF"){
+        electron.ipcRenderer.send('change-timeout', parseInt(doc("time-in").value))
+
+    }
+
+    function SecureLaunch(){
+        ChangeTimeout()
+        if(store.get("timeout")=="OFF"){
+            alert("You need to select other time than OFF to launch your discord with secure options.")
+            return;
+        }
+        electron.ipcRenderer.send('secure-launch')
+    }
+
+    function CleanNow(){
+        electron.ipcRenderer.send('clean-now')
+    }
+
+    function ChangeTimeout(){
+        if(doc("time-in").value=="OFF"){
+            electron.ipcRenderer.send('change-timeout', "OFF")
+            return;
+        }
+        electron.ipcRenderer.send('change-timeout', parseInt(doc("time-in").value))
+    }
+
+    electron.ipcRenderer.on('error', function (event, args) {
+        alert(args)
+    })
+    electron.ipcRenderer.on('logger', function (event, args) {
+        var date = new Date()
+
+        doc("logger").value+=getFormatedStringForChrono(date.getHours(),date.getMinutes(),date.getSeconds())+" "+args+"\n"
+    })
+
+
+    function getFormatedStringForChrono(hours,minutes,seconds){
+        if(seconds < 10){
+            seconds = "0" + seconds;
+        }
+        if(minutes < 10){
+            minutes = "0" + minutes;
+        }
+        if(hours < 10){
+            hours = "0" + hours;
+        }
+
+        return "["+hours + ":" + minutes + ":" + seconds+"]";
+    }
+</script>
