@@ -72,7 +72,9 @@ You can easily **review the code** and **compile it** yourself to observe that I
 
 ### If you trust me
 Go to release section on Discord and download the .zip file.
-Unzip it and execute DiscordSimpleTokenProtector.exe
+Unzip it and execute DiscordSimpleTokenProtector.exe.
+
+### If you don't trust me
 - Download source code of this app,
 - Install [NodeJS](https://nodejs.org/en/),
 - Restart your computer,
