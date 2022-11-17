@@ -1,4 +1,4 @@
-# Discord Simple Token Grabbers Protector
+# 🛡️ Discord Simple Token Grabbers Protector 🛡️
 
 Protect your Discord token from token grabbers !
 
@@ -20,7 +20,12 @@ So you need to have your **password** and **A2F** handy to avoid losing your Dis
 
 **__*So don't be surprised if you get disconnected from your account, it's done on purpose*__.**
 
-## How does it work ?
+
+
+
+
+
+## 💡How does it work ?💡
 
 Here is a desktop application created with [electronJs](https://www.electronjs.org/) which is a framework for NodeJS.
 You have available the entire source code of the application and a compiled version in the "Releases" tab.
@@ -33,7 +38,9 @@ The only thing that I do is to relaunch continually this file to make your `Loca
 
 Once Discord has put the localstorage file in your RAM, it will very rarely reload it to check if you are still up to date.
 
-![img.png](github-assets/img.png)
+![image](https://user-images.githubusercontent.com/73279480/202459345-ef310064-0661-4db3-854b-e151a80c570e.png)
+
+
 
 ### Secure Launch Button
 
@@ -50,10 +57,10 @@ I don't advise to set the cooldown to 1s because it means that every second a fi
 
 #### Why this little console ?
 
-Just to show you when your token as been cleared
+Just to show you when your token as been cleared.
 
 
-## How to trust this app ?
+## 🤝 How to trust this app ? 🤝
 
 Most of the protections for your token on the internet are at times token grabbers.
 Just go to YouTube and look at the comments of some videos about this.
@@ -61,7 +68,7 @@ Just go to YouTube and look at the comments of some videos about this.
 The purpose of this application is to use to be **simple in every way**.
 You can easily **review the code** and **compile it** yourself to observe that I am not doing anything fraudulent with your token.
 
-## How to compile it ?
+## 🤔 How use it ? 🤔
 
 ### If you trust me
 Go to release section on Discord and download the .zip file.
@@ -79,7 +86,7 @@ Unzip it and execute DiscordSimpleTokenProtector.exe
 - Enjoy !
 
 
-## Sufficient protection ?
+## ⚔️ Sufficient protection ? ⚔️
 
 No !
 It does not protect your browser, if you are connected to Discord on your browser: it's dead !
